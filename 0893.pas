@@ -1,8 +1,11 @@
 ﻿program p;
 
-var N: integer;
+var N: int64;
 
 begin
     readln(N);
-    writeln(N * (N-1) * (N-2));
+    if N > 2 then
+      write(N * (N-1) * (N-2))
+    else
+      write(N);
 end.
