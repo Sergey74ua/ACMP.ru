@@ -1,5 +1,5 @@
-a1, a2, a3 = map(int, input().split())
-if a1 + a2 == a3 or a2 + a3 == a1 or a3 + a1 == a2:
-    print('YES')
+A, B, C, T = map(int, input().split())
+if T >= A:
+    print(A * B + (T - A) * C)
 else:
-    print('NO')
+    print(T * B)
