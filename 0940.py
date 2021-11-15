@@ -1,2 +1,2 @@
 K, S = input().split()
-print(S[:int(K)] + S[(int(K)+1):])
+print(S[:int(K)-1]+S[(int(K)):])
