@@ -1,28 +1,23 @@
 ﻿Program
     P;
 Var
-    N, M: integer = 0;
+    N, M: integer;
     S: string;
 Begin
+    N := 0;
+    M := 0;
     Readln(S);
-    For var i := 1 to N do
+    For var i := 1 to length(S) do
     begin
-        Readln(S);
         If
-            length(S)=6
+            copy(S, i, 1)='0'
         then
-            writeln('Yes')
+            begin
+            N := N+1;
+            If N > M then M := N
+            end
         else
-            writeln('No');
+            N := 0;
     end;
+    writeln(M);
 end.
-
-s=input()
-n=m=0
-for i in s:
-  if i=='0':
-    n+=1
-    m=max(m, n)
-  else:
-    n=0
-print(m)
