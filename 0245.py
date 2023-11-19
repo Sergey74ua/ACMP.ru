@@ -9,13 +9,9 @@ else:
     s=t=arr[r-1]+arr[r]
     while l>=0:
         while arr[l]+arr[l+1]<arr[r]:
-            s=max(s, t)
             t-=arr[r]
             r-=1
-            t+=arr[l]
-            l-=1
-        if l>=0:
-            t+=arr[l]
-            s=max(s, t)
-            l-=1
+        t+=arr[l]
+        l-=1
+        s=max(s, t)
 print(s)
