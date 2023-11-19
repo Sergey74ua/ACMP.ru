@@ -8,7 +8,7 @@ else:
     l,r=n-3,n-1
     s=t=arr[r-1]+arr[r]
     while l>=0:
-        while l>=0 and arr[l]+arr[l+1]<arr[r]:
+        while arr[l]+arr[l+1]<arr[r]:
             s=max(s, t)
             t-=arr[r]
             r-=1
