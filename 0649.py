@@ -1,15 +1,11 @@
-n, k = map(int, input().split())
-s = input()
-
-arr = [0]*128
-v = 0
-r = -1
-
-for l in range(0, n):
-    while r+1<n and arr[ord(s[r+1])]<k:
-        r+=1
+n,k=map(int, input().split())
+s=input()
+arr=[0]*128
+v=r=0
+for l in range(n):
+    while r<n and arr[ord(s[r])]<k:
         arr[ord(s[r])]+=1
-    v+=(r+1-l)
+        r+=1
     arr[ord(s[l])]-=1
-
+    v+=(r-l)
 print(v)
