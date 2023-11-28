@@ -1,28 +1,25 @@
-n = int(input())#вершины
-array = []      #таблица смежности
-delta = []      #длина пути
-queue = []      #очередь
-
+n = int(input())
+arr = []
 for i in range(n):
-    array.append(list(map(int, input().split())))
-    delta.append(n**n) #заполняем максимальным значением
+    arr.append(list(map(int, input().split())))
+    for j in range(n):
+        if arr[i][j] == 0:
+            arr[i][j] = n**2
 
-s,f=map(int, input().split()) #номера вершин
+s,f=map(int, input().split())
 s-=1
 f-=1
+queue = [s]
 
-delta[s]=0 #путь s-й ячейки равен 0
-queue.append(s) #добавяляем индекс в очередь
-
-while(len(queue)>0):    #пока все не пройдем
-    t=queue[0]          #берем из очереди индекс вершины
-    queue.pop(0)        #стираем верхушку очереди
-    for i in range(n):  #обходим все связи вершины
-        if array[t][i] and delta[i]>delta[t]+1: #ищем более короткий путь
-            delta[i]=delta[t]+1                 #среди ненулевых ячеек смежности
-            queue.append(i)                     #в очередь, для дальнейшего исследования
-
-if delta[f]<n**n:
-    print(delta[f])
+while(len(queue)>0):
+    for i in range(n):
+        if arr[queue[0]][i] > 0 and arr[s][i] == n**2:
+            arr[s][i]=arr[s][queue[0]]+1
+            queue.append(i)
+    queue.pop(0)
+    print(*queue)
+    
+if arr[s][f]<n**2:
+    print(arr[s][f])
 else:
     print(-1)
