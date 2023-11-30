@@ -1,5 +1,5 @@
-N = int(input())
-if N > 0:
-    print(int((N+1)*(N/2)))
+n = int(input())
+if n > 0:
+    print(int((n+1)*(n/2)))
 else:
-    print(int(-(N+1)*(N/2-1)))
+    print(int(-(n+1)*(n/2-1)))
